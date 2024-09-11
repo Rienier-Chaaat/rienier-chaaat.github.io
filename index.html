@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      window.fbAsyncInit = function () {
+        // JavaScript SDK configuration and setup
+        FB.init({
+          appId:    '315343961336992', // Facebook App ID
+          cookie:   true, // enable cookies
+          xfbml:    true, // parse social plugins on this page
+          version:  'v19.0' //Graph API version
+        });
+      };
+    
+      // Load the JavaScript SDK asynchronously
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    
+      // Facebook Login with JavaScript SDK
+      function launchWhatsAppSignup() {
+        // Conversion tracking code
+        // fbq && fbq('trackCustom', 'WhatsAppOnboardingStart', {appId: '315343961336992', feature: 'whatsapp_embedded_signup'});
+        
+        // Launch Facebook login
+        FB.login(function (response) {
+          if (response.authResponse) {
+            const code = response.authResponse.code;
+            // The returned code must be transmitted to your backend, 
+      // which will perform a server-to-server call from there to our servers for an access token
+          } else {
+            console.log('User cancelled login or did not fully authorize.');
+          }
+        }, {
+          config_id: '394931709735473', // configuration ID goes here
+          response_type: 'code',    // must be set to 'code' for System User access token
+          override_default_response_type: true, // when true, any response types passed in the "response_type" will take precedence over the default types
+          extras: {
+            setup: {
+              // ... // Prefilled data can go here
+              business: {
+            name: 'Acme Inc.',
+            email: 'johndoe@acme.com',
+            phone: {
+              code: 1,
+              number: '6505551234'
+            },
+            website: 'https://www.acme.com',
+            address: {
+              streetAddress1: '1 Acme Way',
+              city: 'Acme Town',
+              state: 'CA',
+              zipPostal: '94000',
+              country: 'US'
+            },
+            timezone: 'UTC-08:00'
+          },
+          phone: {
+            displayName: 'Acme Inc',
+            category: 'ENTERTAIN',
+            description: 'Acme Inc. is a leading entertainment company.',
+          }
+            }
+          }
+        });
+      }
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  </head>
+  <body>
+    <main id="app"></main>
+    <button onclick="launchWhatsAppSignup()" style="background-color: #1877f2; border: 0; border-radius: 4px; color: #fff; cursor: pointer; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; height: 40px; padding: 0 24px;">Login with Facebook</button>
+  </body>
+  <!-- <link rel="stylesheet" href="https://livechat.chaaat.io/v1/css/live-chat.css" />
+<script src="https://livechat.chaaat.io/v1/js/live-chat.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var chaaat = new ChaaatChat({
+        
+// Main root content wrapper
+
+          container: '#app',
+          
+// Agent ID
+
+          agency_id: '55b38668-76b3-4a52-b023-2989baacc6aa',
+          
+// Language - en, jp, kr, zh-hk, zh-tw
+
+          language: 'en',
+      });
+  });
+</script> -->
+<!-- <link rel="stylesheet" href="http://localhost:3000/v1/css/live-chat.css" />
+<script src="http://localhost:3000/v1/js/live-chat-test-dev.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var chaaat = new ChaaatChat({
+        
+// Main root content wrapper
+
+          container: '#app',
+          
+// Agent ID
+
+          agency_id: '8b09a1a1-0a8f-4aed-ac56-d3a0244a8d47',
+          
+// Language - en, jp, kr, zh-hk, zh-tw
+
+          language: 'en',
+      });
+  });
+</script>
+<script src="http://localhost:3000/v1/js/wa.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+      var chaaat2 = new ChaaatWhatsApp({
+          container: '#app', 
+// Main root content wrapper
+
+          phone: '639993989231', 
+// WABA number
+
+          text: 'I checked the website and I have question to ask', 
+// Initial chat text
+
+      });
+  });
+</script> -->
+
+<link rel="stylesheet" href="https://livechat.chaaat.io/v1/css/live-chat.css" />
+<script src="https://livechat.chaaat.io/v1/js/live-chat.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+      var chaaat = new ChaaatChat({
+        
+// Main root content wrapper
+
+          container: '#app',
+          
+// Agent ID
+
+          agency_id: 'b1198920-e83a-48be-87af-26dd2b1d393e',
+          
+// Language - en, jp, kr, zh-hk, zh-tw
+
+          language: 'en',
+      });
+  });
+</script>
